@@ -15,11 +15,9 @@ import java.util.Optional;
 public class UsuarioService implements IUsuarioService{
 
     private final UsuarioRepository usuarioRepository;
-    private final ClienteRepository clienteRepository;
 
-    public UsuarioService(UsuarioRepository usuarioRepository, ClienteRepository clienteRepository) {
+    public UsuarioService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
-        this.clienteRepository = clienteRepository;
     }
 
     @Override
@@ -69,10 +67,10 @@ public class UsuarioService implements IUsuarioService{
 
     @Override
     public boolean existePorId(Long id) {
-        return false;
+        return usuarioRepository.existsById(id);
     }
 
-    public void validarUsuario (Usuario usuario){
+    private void validarUsuario (Usuario usuario){
         if (usuario.getUsername() == null  || usuario.getUsername().trim().isEmpty()){
             throw new IllegalArgumentException(("El username es un dato obligatorio"));
         }
