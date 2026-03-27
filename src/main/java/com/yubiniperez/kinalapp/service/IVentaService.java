@@ -1,6 +1,5 @@
 package com.yubiniperez.kinalapp.service;
 
-import com.yubiniperez.kinalapp.entity.Producto;
 import com.yubiniperez.kinalapp.entity.Venta;
 
 import java.util.List;
@@ -17,7 +16,7 @@ public interface IVentaService {
 
     void eliminar(Long id);
 
-    List<Producto> listarActivos();
+    List<Venta> listarActivos();
 
     boolean existePorId(Long id);
 }

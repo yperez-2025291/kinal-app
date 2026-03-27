@@ -26,7 +26,7 @@ public class Venta {
     private Cliente cliente;
 
     @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn (name = "Usuario_codigo_usuario")
+    @JoinColumn (name = "Usuarios_codigo_usuario")
     private Usuario usuario;
 
     public Venta(){}
