@@ -57,7 +57,7 @@ public class VentaService implements IVentaService{
 
     @Override
     public List<Venta> listarActivos() {
-        return ventaRepository.FindByEstado(1);
+        return ventaRepository.findByEstado(1);
     }
 
     @Override
