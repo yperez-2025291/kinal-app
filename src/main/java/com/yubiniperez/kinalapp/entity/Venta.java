@@ -22,11 +22,11 @@ public class Venta {
     private Integer estado;
 
     @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn(name = "Clientes_dpi_cliente")
+    @JoinColumn(nullable = false, name = "Clientes_dpi_cliente")
     private Cliente cliente;
 
     @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn (name = "Usuarios_codigo_usuario")
+    @JoinColumn (nullable = false, name = "Usuarios_codigo_usuario")
     private Usuario usuario;
 
     public Venta(){}

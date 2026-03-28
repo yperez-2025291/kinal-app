@@ -12,11 +12,11 @@ public class Cliente {
     @Id
     @Column(name = "dpi_cliente")
     private String DPICliente;
-    @Column (nullable = false)
+    @Column (nullable = false, precision = 50)
     private String nombreCliente;
-    @Column (nullable = false)
+    @Column (nullable = false, precision = 50)
     private String apellidoCliente;
-    @Column (nullable = false)
+    @Column (nullable = false, precision = 100)
     private String direccion;
     @Column (nullable = false)
     private Integer estado;
