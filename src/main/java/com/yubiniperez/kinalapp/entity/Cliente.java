@@ -19,12 +19,12 @@ public class Cliente {
     @Column (nullable = false)
     private String direccion;
     @Column (nullable = false)
-    private int estado;
+    private Integer estado;
 
     public Cliente(){
     }
 
-    public Cliente(String DPICliente, String nombreCliente, String apellidoCliente, String direccion, int estado) {
+    public Cliente(String DPICliente, String nombreCliente, String apellidoCliente, String direccion, Integer estado) {
         this.DPICliente = DPICliente;
         this.nombreCliente = nombreCliente;
         this.apellidoCliente = apellidoCliente;
@@ -64,11 +64,11 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public int getEstado() {
+    public Integer getEstado() {
         return estado;
     }
 
-    public void setEstado(int estado) {
+    public void setEstado(Integer estado) {
         this.estado = estado;
     }
 }

@@ -19,7 +19,7 @@ public class Venta {
     private BigDecimal total;
 
     @Column (nullable = false)
-    private int estado;
+    private Integer estado;
 
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "Clientes_dpi_cliente")
@@ -31,7 +31,7 @@ public class Venta {
 
     public Venta(){}
 
-    public Venta(Long codigoVenta, LocalDate fechaVenta, BigDecimal total, int estado, Cliente cliente, Usuario usuario) {
+    public Venta(Long codigoVenta, LocalDate fechaVenta, BigDecimal total, Integer estado, Cliente cliente, Usuario usuario) {
         this.codigoVenta = codigoVenta;
         this.fechaVenta = fechaVenta;
         this.total = total;
@@ -64,11 +64,11 @@ public class Venta {
         this.total = total;
     }
 
-    public int getEstado() {
+    public Integer getEstado() {
         return estado;
     }
 
-    public void setEstado(int estado) {
+    public void setEstado(Integer estado) {
         this.estado = estado;
     }
 

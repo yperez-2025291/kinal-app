@@ -15,13 +15,13 @@ public class Producto {
     @Column (nullable = false, precision = 10, scale = 2)
     private BigDecimal precio;
     @Column (nullable = false)
-    private int stock;
+    private Integer stock;
     @Column (nullable = false)
-    private int estado;
+    private Integer estado;
 
     public Producto(){}
 
-    public Producto(Long codigoProducto, String nombreProducto, BigDecimal precio, int stock, int estado) {
+    public Producto(Long codigoProducto, String nombreProducto, BigDecimal precio, Integer stock, Integer estado) {
         this.codigoProducto = codigoProducto;
         this.nombreProducto = nombreProducto;
         this.precio = precio;
@@ -53,19 +53,19 @@ public class Producto {
         this.precio = precio;
     }
 
-    public int getStock() {
+    public Integer getStock() {
         return stock;
     }
 
-    public void setStock(int stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
 
-    public int getEstado() {
+    public Integer getEstado() {
         return estado;
     }
 
-    public void setEstado(int estado) {
+    public void setEstado(Integer estado) {
         this.estado = estado;
     }
 }
