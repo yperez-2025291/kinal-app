@@ -4,7 +4,7 @@ import com.yubiniperez.kinalapp.entity.Venta;
 import com.yubiniperez.kinalapp.repository.ClienteRepository;
 import com.yubiniperez.kinalapp.repository.UsuarioRepository;
 import com.yubiniperez.kinalapp.repository.VentaRepository;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,7 +36,11 @@ public class VentaService implements IVentaService{
 
     @Override
     public Venta crear(Venta venta) {
-        return null;
+        validarVenta(venta);
+        if (venta.getEstado() == null) {
+            venta.setEstado(1);
+        }
+        return ventaRepository.save(venta);
     }
 
     @Override
@@ -44,7 +48,9 @@ public class VentaService implements IVentaService{
         if (!ventaRepository.existsById(id)){
             throw new RuntimeException("Venta de id "+id+" no fue encontrada");
         }
-        return null;
+        venta.setCodigoVenta(id);
+        validarVenta(venta);
+        return ventaRepository.save(venta);
     }
 
     @Override
