@@ -1,0 +1,28 @@
+/* CSS Variables generated from Kigen.design */
+:root {
+  /*Colores palidos de verde*/
+  --finch-50: #f4f4bf;
+  --finch-100: #dfdfaf;
+  --finch-200: #bfbf96;
+  --finch-300: #a4a480;
+  --finch-400: #8b8b6c;
+  --finch-500: #747459;
+  --finch-600: #5e5e48;
+  --finch-700: #4d4d3a;
+  --finch-800: #363628;
+  --finch-900: #1e1e15;
+  --finch-950: #11110b;
+
+  /*Colores claros de cafe*/
+  --roman-coffee-50: #f6efed;
+  --roman-coffee-100: #ead8d3;
+  --roman-coffee-200: #d9b3a8;
+  --roman-coffee-300: #cd917d;
+  --roman-coffee-400: #ad7a69;
+  --roman-coffee-500: #8f6456;
+  --roman-coffee-600: #735044;
+  --roman-coffee-700: #5f4137;
+  --roman-coffee-800: #442e26;
+  --roman-coffee-900: #281914;
+  --roman-coffee-950: #190e0b;
+}
