@@ -12,6 +12,7 @@
         
         <div class="seccion-botones">
             <a th:href="@{/}" class="btn-general btn-volver">← Menú Principal</a>
+            <a th:href="@{/vistas/detalles/nuevo}" class="btn-general btn-primario">+ Agregar Producto a Venta</a>
         </div>
 
         <table class="tabla-moderna">
@@ -19,7 +20,7 @@
                 <tr>
                     <th>ID Detalle</th>
                     <th>No. Venta</th>
-                    <th>Producto</th>
+                    <th>ID Producto</th>
                     <th>Cantidad</th>
                     <th>Precio Unit.</th>
                     <th>Subtotal</th>
@@ -28,11 +29,11 @@
             <tbody>
                 <tr th:each="d : ${detalles}">
                     <td th:text="${d.codigoDetalleVenta}"></td>
-                    <td th:text="${d.venta.codigoVenta}" style="font-weight:bold;"></td>
-                    <td th:text="${d.producto.nombreProducto}"></td>
+                    <td th:text="${d.venta.codigoVenta}"></td>
+                    <td th:text="${d.producto.codigoProducto}"></td>
                     <td th:text="${d.cantidad}"></td>
                     <td th:text="'Q ' + ${d.precioUnitario}"></td>
-                    <td th:text="'Q ' + ${d.subtotal}" style="color: var(--roman-coffee-700); font-weight: bold;"></td>
+                    <td th:text="'Q ' + ${d.subtotal}" style="font-weight: bold;"></td>
                 </tr>
             </tbody>
         </table>
