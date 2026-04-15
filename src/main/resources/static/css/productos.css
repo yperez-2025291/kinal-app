@@ -1,0 +1,79 @@
+.fondo-app {
+    background-color: var(--finch-50);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 40px;
+}
+
+.contenedor-principal {
+    max-width: 1100px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.titulo-pagina {
+    color: var(--finch-900);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    border-bottom: 4px solid var(--roman-coffee-400);
+    display: inline-block;
+}
+
+.seccion-botones {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.btn-general {
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primario { background: var(--finch-700); color: white; }
+.btn-primario:hover { background: var(--finch-900); }
+
+.btn-volver { background: var(--roman-coffee-600); color: white; }
+.btn-volver:hover { background: var(--roman-coffee-800); }
+
+/* Tabla Estilizada */
+.tabla-moderna {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-moderna th {
+    background-color: var(--finch-900);
+    color: var(--finch-50);
+    padding: 15px;
+    text-align: left;
+}
+
+.tabla-moderna td {
+    padding: 15px;
+    border-bottom: 1px solid var(--finch-100);
+    color: var(--finch-800);
+}
+
+.tabla-moderna tr:hover { background-color: var(--roman-coffee-50); }
+
+.badge-accion {
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.edit { background: var(--finch-100); color: var(--finch-800); }
+.del { background: #fee2e2; color: #991b1b; }
