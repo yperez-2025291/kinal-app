@@ -1,0 +1,91 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.fondo-app {
+    background-color: var(--roman-coffee-50);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container-ventas {
+    background-color: white;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.campo-formulario {
+    margin-bottom: 20px;
+}
+
+.campo-formulario label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--roman-coffee-900);
+}
+
+.campo-formulario input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--roman-coffee-200);
+    box-sizing: border-box;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.campo-formulario input:focus {
+    border-color: var(--roman-coffee-500);
+}
+
+.seccion-acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btn-form {
+    width: 100%; 
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.btn-guardar {
+    background-color: var(--roman-coffee-600);
+    color: white;
+}
+
+.btn-guardar:hover {
+    background-color: var(--roman-coffee-700);
+}
+
+.btn-cancelar {
+    background-color: white;
+    color: var(--roman-coffee-600);
+    border: 2px solid var(--roman-coffee-600);
+}
+
+.btn-cancelar:hover {
+    background-color: var(--roman-coffee-50);
+}
