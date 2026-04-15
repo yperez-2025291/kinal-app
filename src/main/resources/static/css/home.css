@@ -1,0 +1,73 @@
+body {
+  background-color: var(--finch-50);
+  color: var(--finch-900);
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Encabezado */
+.header-welcome {
+  background-color: var(--finch-900);
+  color: var(--finch-50);
+  padding: 2rem;
+  text-align: center;
+  border-bottom: 5px solid var(--roman-coffee-400);
+}
+
+/* Contenedor de Recuadros */
+.dashboard-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+}
+
+/* El Recuadro de Entidad */
+.entidad-card {
+  background-color: white;
+  border: 2px solid var(--finch-200);
+  width: 250px;
+  height: 180px;
+  padding: 20px;
+  border-radius: 12px;
+  position: relative; /* Necesario para el botón en la esquina */
+  transition: transform 0.2s;
+  box-shadow: 4px 4px 0px var(--finch-100);
+}
+
+.entidad-card:hover {
+  transform: scale(1.03);
+  border-color: var(--roman-coffee-300);
+}
+
+.entidad-card h3 {
+  margin: 0;
+  color: var(--roman-coffee-800);
+  font-size: 1.4rem;
+}
+
+.entidad-card .contador {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--finch-500);
+  margin-top: 10px;
+}
+
+/* Botón Inspeccionar Pequeño */
+.btn-inspeccionar {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: var(--roman-coffee-500);
+  color: white;
+  text-decoration: none;
+  font-size: 0.75rem;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.btn-inspeccionar:hover {
+  background-color: var(--finch-700);
+}
