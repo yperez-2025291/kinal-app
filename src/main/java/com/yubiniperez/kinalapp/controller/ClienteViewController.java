@@ -1,70 +1,57 @@
 package com.yubiniperez.kinalapp.controller;
 
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import com.yubiniperez.kinalapp.entity.Cliente;
+import com.yubiniperez.kinalapp.service.IClienteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import com.yubiniperez.kinalapp.entity.Cliente;
-import com.yubiniperez.kinalapp.service.ClienteService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
-
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping ("/clientes")
+@RequestMapping("/vistas/clientes")
 public class ClienteViewController {
-    
-    @Autowired
-    private ClienteService clienteService;
+
+    private final IClienteService clienteService;
+
+    public ClienteViewController(IClienteService clienteService) {
+        this.clienteService = clienteService;
+    }
 
     @GetMapping
-    public String listarClientes (Model model){
-        model.addAttribute("titulo", "Listado de Clientes");
+    public String listar(Model model) {
         model.addAttribute("clientes", clienteService.listarClientes());
-        return "pages/clientes-lista";
+        return "pages/clientes";
     }
 
     @GetMapping("/nuevo")
-    public String nuevoCliente(Model model) {
-        model.addAttribute("titulo", "Nuevo cliente");
-        model.addAttribute("cliente", new Cliente());
-        model.addAttribute("esNuevo", true);
-        return "pages/clientes-form";
+    public String nuevo(Model model) {
+        Cliente cliente = new Cliente();
+        cliente.setEstado(1); 
+        model.addAttribute("cliente", cliente);
+        model.addAttribute("titulo", "Nuevo Cliente");
+        return "pages/cliente-form";
     }
 
-    @GetMapping("/editar/{dpi}")
-    public String formularioEditar(@PathVariable("dpi") String dpi, Model model) {
-        Optional<Cliente> cliente = clienteService.buscarPorDPI(dpi);
-        if (cliente.isPresent()) {
-            model.addAttribute("titulo", "Editar Cliente: " + dpi);
-            model.addAttribute("cliente", cliente.get());
-            model.addAttribute("esNuevo", false);
-            return "pages/clientes-form";
-        }
-        return "redirect:/clientes";
+    @GetMapping("/editar/{id}")
+    public String editar(@PathVariable("id") String dpi, Model model) {
+        clienteService.buscarPorDPI(dpi).ifPresent(c -> model.addAttribute("cliente", c));
+        model.addAttribute("titulo", "Editar Cliente");
+        return "pages/cliente-form";
     }
-    
+
     @PostMapping("/guardar")
-    public String guardarCliente(@ModelAttribute("cliente") Cliente cliente, @RequestParam("esNuevo") boolean esNuevo) {
-        if (esNuevo) {
-            clienteService.guardar(cliente);
-        } else {
-            clienteService.actualizar(cliente.getDPICliente(), cliente);
-        }
-        return "redirect:/clientes";
+    public String guardar(@ModelAttribute("cliente") Cliente cliente) {
+        if (cliente.getEstado() == null) cliente.setEstado(1);
+        clienteService.guardar(cliente);
+        return "redirect:/vistas/clientes";
     }
-    
-    @GetMapping("/eliminar/{dpi}")
-    public String eliminar(@PathVariable("dpi") String dpi) {
-        clienteService.eliminar(dpi);
-        return "redirect:/clientes";
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(@PathVariable("id") String dpi) {
+        try {
+            clienteService.eliminar(dpi);
+        } catch (Exception e) {
+            return "redirect:/vistas/clientes?error=fk";
+        }
+        return "redirect:/vistas/clientes";
     }
 }

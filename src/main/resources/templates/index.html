@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Dashboard - Kinal App</title>
-  <link rel="stylesheet" th:href="@{/css/home.css}">
-  <link rel="stylesheet" th:href="@{/css/colors.css}">
+    <meta charset="UTF-8">
+    <title>Dashboard - Kinal App</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="stylesheet" th:href="@{/css/colors.css}">
 </head>
 <body>
 
 <header class="header-welcome">
-  <h1 th:text="${titulo}">Título</h1>
-  <p th:text="${mensaje}">Mensaje</p>
+    <h1 th:text="${titulo}">Título</h1>
+    <p th:text="${mensaje}">Mensaje</p>
 </header>
 
 <main class="dashboard-container">
 
-  <div class="entidad-card">
-    <h3>Clientes</h3>
-    <div class="contador" th:text="${totalClientes}">0</div>
-    <a th:href="@{/clientes}" class="btn-inspeccionar">inspeccionar</a>
-  </div>
+    <div class="entidad-card">
+        <h3>Clientes</h3>
+        <div class="contador" th:text="${totalClientes}">0</div>
+        <a th:href="@{/vistas/clientes}" class="btn-inspeccionar">inspeccionar</a>
+    </div>
 
-  <div class="entidad-card">
-    <h3>Productos</h3>
-    <div class="contador" th:text="${totalProductos}">0</div>
-    <a th:href="@{/productos}" class="btn-inspeccionar">inspeccionar</a>
-  </div>
+    <div class="entidad-card">
+        <h3>Productos</h3>
+        <div class="contador" th:text="${totalProductos}">0</div>
+        <a th:href="@{/vistas/productos}" class="btn-inspeccionar">inspeccionar</a>
+    </div>
 
-  <div class="entidad-card">
-    <h3>Proveedores</h3>
-    <div class="contador" th:text="${totalProveedores}">0</div>
-    <a th:href="@{/proveedores}" class="btn-inspeccionar">inspeccionar</a>
-  </div>
+    <div class="entidad-card">
+        <h3>Usuarios</h3>
+        <div class="contador" th:text="${totalUsuarios}">0</div>
+        <a th:href="@{/vistas/usuarios}" class="btn-inspeccionar">inspeccionar</a>
+    </div>
 
-  <div class="entidad-card">
-    <h3>Ventas</h3>
-    <div class="contador" th:text="${totalVentas}">0</div>
-    <a th:href="@{/ventas}" class="btn-inspeccionar">inspeccionar</a>
-  </div>
+    <div class="entidad-card">
+        <h3>Ventas</h3>
+        <div class="contador" th:text="${totalVentas}">0</div>
+        <a th:href="@{/vistas/ventas}" class="btn-inspeccionar">inspeccionar</a>
+    </div>
 
-  <div class="entidad-card">
-    <h3>Empleados</h3>
-    <div class="contador" th:text="${totalEmpleados}">0</div>
-    <a th:href="@{/empleados}" class="btn-inspeccionar">inspeccionar</a>
-  </div>
+    <div class="entidad-card">
+        <h3>Detalles de Ventas</h3>
+        <div class="contador" th:text="${totalDetalles}">0</div>
+        <a th:href="@{/vistas/detalles}" class="btn-inspeccionar">inspeccionar</a>
+    </div>
 
 </main>
 

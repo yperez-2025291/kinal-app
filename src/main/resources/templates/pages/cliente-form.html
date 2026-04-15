@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/colors.css}">
+    <link rel="stylesheet" th:href="@{/css/clientes.css}">
+    <title th:text="${titulo}"></title>
+</head>
+<body class="fondo-app">
+    <div class="contenedor-principal" style="max-width: 600px;">
+        <h1 class="titulo-pagina" th:text="${titulo}"></h1>
+        
+        <form th:action="@{/vistas/clientes/guardar}" th:object="${cliente}" method="post">
+            <input type="hidden" th:field="*{estado}">
+
+            <div class="form-grupo">
+                <label>DPI del Cliente:</label>
+                <input type="text" th:field="*{DPICliente}" class="form-input" 
+                       th:readonly="${cliente.DPICliente != null}" required>
+            </div>
+            
+            <div style="display: flex; gap: 15px;">
+                <div class="form-grupo" style="flex: 1;">
+                    <label>Nombres:</label>
+                    <input type="text" th:field="*{nombreCliente}" class="form-input" required>
+                </div>
+                <div class="form-grupo" style="flex: 1;">
+                    <label>Apellidos:</label>
+                    <input type="text" th:field="*{apellidoCliente}" class="form-input" required>
+                </div>
+            </div>
+
+            <div class="form-grupo">
+                <label>Dirección de Domicilio:</label>
+                <input type="text" th:field="*{direccion}" class="form-input" required>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <button type="submit" class="btn-general btn-primario" style="width: 100%;">Confirmar y Guardar</button>
+                <a th:href="@{/vistas/clientes}" style="display:block; text-align:center; margin-top:15px; color:var(--roman-coffee-600);">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
