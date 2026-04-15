@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/colors.css}">
+    <link rel="stylesheet" th:href="@{/css/clientes.css}">
+    <title>Gestión de Clientes</title>
+</head>
+<body class="fondo-app">
+    <div class="contenedor-principal">
+        <center><h1 class="titulo-pagina">Clientes Registrados</h1></center>
+        
+        <div class="seccion-botones">
+            <a th:href="@{/}" class="btn-general btn-volver">← Volver al Menú</a>
+            <a th:href="@{/vistas/clientes/nuevo}" class="btn-general btn-primario">+ Agregar Nuevo Cliente</a>
+        </div>
+
+        <div th:if="${param.error}" style="background:#fee2e2; color:#991b1b; padding:15px; border-radius:8px; margin-bottom:20px;">
+            <b>Error:</b> No se puede eliminar este cliente porque tiene historial de ventas.
+        </div>
+
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>DPI</th>
+                    <th>Nombre Completo</th>
+                    <th>Dirección</th>
+                    <th style="text-align: center;">Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="c : ${clientes}">
+                    <td th:text="${c.DPICliente}" style="font-weight:bold;"></td>
+                    <td th:text="${c.nombreCliente + ' ' + c.apellidoCliente}"></td>
+                    <td th:text="${c.direccion}"></td>
+                    <td style="text-align: center;">
+                        <a th:href="@{/vistas/clientes/editar/{id}(id=${c.DPICliente})}" class="badge-accion edit">✏️ Editar</a>
+                        <a th:href="@{/vistas/clientes/eliminar/{id}(id=${c.DPICliente})}" 
+                           class="badge-accion del" onclick="return confirm('¿Seguro que deseas eliminarlo?')">🗑️ Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
