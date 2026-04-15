@@ -25,7 +25,7 @@ public class ProductoViewController {
         this.productoService = productoService;
     }
 
-    
+    @GetMapping
     public String listar(Model model) {
         model.addAttribute("productos", productoService.listarProductos());
         return "pages/productos";
