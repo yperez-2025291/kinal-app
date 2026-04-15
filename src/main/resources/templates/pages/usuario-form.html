@@ -16,12 +16,12 @@
 
             <div style="margin-bottom: 15px;">
                 <label style="display:block; margin-bottom:5px;">Nombre de Usuario:</label>
-                <input type="text" th:field="*{username}" style="width:100%; padding:10px; border-radius:5px; border:1px solid #ccc;" required>
+                <input type="text" th:field="*{username}" style="width:100%; padding:10px; border-radius:5px; border:1px solid #ccc;" placeholder="Ej: ypere" required>
             </div>
 
             <div style="margin-bottom: 15px;">
                 <label style="display:block; margin-bottom:5px;">Correo Electrónico:</label>
-                <input type="email" th:field="*{email}" style="width:100%; padding:10px; border-radius:5px; border:1px solid #ccc;" required>
+                <input type="email" th:field="*{email}" style="width:100%; padding:10px; border-radius:5px; border:1px solid #ccc;" placeholder="usuario@kinal.edu.gt" required>
             </div>
 
             <div style="display: flex; gap: 15px; margin-bottom: 15px;">
@@ -30,17 +30,14 @@
                     <input type="password" th:field="*{password}" style="width:100%; padding:10px; border-radius:5px; border:1px solid #ccc;" required>
                 </div>
                 <div style="flex: 1;">
-                    <label style="display:block; margin-bottom:5px;">Asignar Rol:</label>
-                    <select th:field="*{rol}" style="width:100%; padding:10px; border-radius:5px; border:1px solid #ccc;">
-                        <option value="ADMIN">ADMIN</option>
-                        <option value="VENDEDOR">VENDEDOR</option>
-                    </select>
+                    <label style="display:block; margin-bottom:5px;">Rol del Usuario:</label>
+                    <input type="text" th:field="*{rol}" style="width:100%; padding:10px; border-radius:5px; border:1px solid #ccc;" placeholder="Escriba el rol (ADMIN, etc.)" required>
                 </div>
             </div>
             
             <div style="margin-top: 30px;">
                 <button type="submit" class="btn-general btn-primario" style="width: 100%;">Finalizar Registro</button>
-                <a th:href="@{/vistas/usuarios}" style="display:block; text-align:center; margin-top:15px; color:var(--roman-coffee-600);">Cancelar operación</a>
+                <a th:href="@{/vistas/usuarios}" style="display:block; text-align:center; margin-top:15px; color:var(--roman-coffee-600); text-decoration: none;">Cancelar operación</a>
             </div>
         </form>
     </div>
