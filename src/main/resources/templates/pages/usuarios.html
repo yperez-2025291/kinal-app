@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/colors.css}">
+    <link rel="stylesheet" th:href="@{/css/usuarios.css}">
+    <title>Gestión de Usuarios</title>
+</head>
+<body class="fondo-app">
+    <div class="contenedor-principal">
+        <center><h1 class="titulo-pagina">Usuarios del sistema</h1></center>
+        
+        <div class="seccion-botones">  
+            <a th:href="@{/}" class="btn-general btn-volver">← Volver al Menú</a>
+            <a th:href="@{/vistas/usuarios/nuevo}" class="btn-general btn-primario">+ Agregar Nuevo Usuario</a>
+        </div>
+
+        <div th:if="${param.error}" style="background:#fee2e2; color:#991b1b; padding:15px; border-radius:8px; margin-bottom:20px;">
+            <b>Error:</b> No se puede eliminar este usuario porque tiene historial de actividades.
+        </div>
+
+        <table class="tabla-moderna">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Estado</th>
+                    <th style="text-align: center;">Operaciones</th>
+                </tr>
+            </thead>
+            <tbody> 
+                <tr th:each="u : ${usuarios}">
+                    <td th:text="${u.codigoUsuario}"></td>
+                    <td th:text="${u.username}"></td>
+                    <td th:text="${u.email}"></td>
+                    <td> <span class="badge-rol" th:text="${u.rol}"></span></td>
+                    <td th:text="${u.estado == 1 ? 'Activo' : 'Inactivo'}"></td>
+                    <td style="text-align: center;">
+                        <a th:href="@{/vistas/usuarios/editar/{id}(id=${u.codigoUsuario})}" class="badge-accion edit">Editar</a>
+                        <a th:href="@{/vistas/usuarios/eliminar/{id}(id=${u.codigoUsuario})}" 
+                        class="badge-accion del" onclick="return confirm('¿Seguro que deseas eliminarlo?')">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
