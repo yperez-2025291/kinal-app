@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{/css/colors.css}">
+  <link rel="stylesheet" th:href="@{/css/productos.css}"> 
+  <title>Historial de Ventas</title>
+</head>
+<body class="fondo-app">
+  <div class="contenedor-principal">
+    <center><h1 class="titulo-pagina">Registro de Ventas (Facturación)</h1></center>
+      
+    <div class="seccion-botones">
+      <a th:href="@{/}" class="btn-general btn-volver">← Menú Principal</a>
+    </div>
+
+    <table class="tabla-moderna">
+      <thead>
+        <tr>
+          <th>No. Factura</th>
+          <th>Fecha</th>
+          <th>Cliente</th>
+          <th>Vendedor</th>
+          <th>Total</th>
+          <th style="text-align: center;">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="v : ${ventas}">
+          <td th:text="${v.codigoVenta}" style="font-weight:bold;"></td>
+          <td th:text="${v.fechaVenta}"></td>
+          <td th:text="${v.cliente.nombreCliente + ' ' + v.cliente.apellidoCliente}"></td>
+          <td th:text="${v.usuario.username}"></td>
+          <td th:text="'Q ' + ${v.total}"></td>
+          <td style="text-align: center;">
+          <span class="badge-accion edit" style="background-color: var(--finch-500); cursor: default;">✅ Procesada</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
