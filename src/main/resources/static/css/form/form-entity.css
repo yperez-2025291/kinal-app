@@ -1,0 +1,94 @@
+body {
+  background-color: var(--green-spring-300);
+  margin: 0;
+}
+
+.contenedor-principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.tarjeta-formulario {
+  background-color: var(--bay-leaf-50);
+  padding: 40px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 450px;
+}
+
+.cabecera {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cabecera h2 {
+  font-size: 35px;
+  color: var(--silver-tree-400);
+  margin-bottom: 10px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.campo label {
+  font-weight: bold;
+  color: var(--bay-leaf-700);
+  font-size: 14px;
+}
+
+.campo input {
+  padding: 10px;
+  border: 1px solid var(--bay-leaf-200);
+  border-radius: 6px;
+  background-color: white;
+}
+
+.campo select {
+  padding: 10px;
+  border: 1px solid var(--bay-leaf-200);
+  border-radius: 6px;
+  background-color: white;
+}
+
+.fila {
+  display: grid;
+  gap: 10px;
+}
+
+.botones {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-guardar {
+  background-color: var(--silver-tree-500);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-guardar:hover {
+  background-color: var(--silver-tree-600);
+}
+
+.btn-cancelar {
+  text-align: center;
+  text-decoration: none;
+  color: var(--bay-leaf-500);
+  font-size: 14px;
+}
