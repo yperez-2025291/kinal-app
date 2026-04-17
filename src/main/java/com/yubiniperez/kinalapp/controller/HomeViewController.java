@@ -1,6 +1,5 @@
 package com.yubiniperez.kinalapp.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,18 +13,26 @@ import com.yubiniperez.kinalapp.service.DetalleVentaService;
 @Controller
 public class HomeViewController {
 
-    @Autowired private ClienteService clienteService;
-    @Autowired private ProductoService productoService;
-    @Autowired private UsuarioService usuarioService;
-    @Autowired private VentaService ventaService;
-    @Autowired private DetalleVentaService detalleVentaService;
+    private ClienteService clienteService;
+    private ProductoService productoService;
+    private UsuarioService usuarioService;
+    private VentaService ventaService;
+    private DetalleVentaService detalleVentaService;
+
+    public HomeViewController(ClienteService clienteService, ProductoService productoService, UsuarioService usuarioService, VentaService ventaService, DetalleVentaService detalleVentaService) {
+        this.clienteService = clienteService;
+        this.productoService = productoService;
+        this.usuarioService = usuarioService;
+        this.ventaService = ventaService;
+        this.detalleVentaService = detalleVentaService;
+    }
+
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("titulo", "Bienvenido a Kinal App");
-        model.addAttribute("mensaje", "Sistema de Control de Ventas e Inventario");
+        model.addAttribute("titulo", "Bienvenido a la base de datos de Kinal App");
+        model.addAttribute("mensaje", "Administracion del sistema de Control de Ventas e Inventario");
         
-        // Contadores basados en tus 5 servicios cargados
         model.addAttribute("totalClientes", clienteService.listarClientes().size());
         model.addAttribute("totalProductos", productoService.listarProductos().size());
         model.addAttribute("totalUsuarios", usuarioService.listarUsuarios().size());
