@@ -25,4 +25,41 @@
   --roman-coffee-800: #442e26;
   --roman-coffee-900: #281914;
   --roman-coffee-950: #190e0b;
+
+  /*Colores menta*/
+  --silver-tree-50: #cdfbe2;
+  --silver-tree-100: #78f4ba;
+  --silver-tree-200: #68d4a1;
+  --silver-tree-300: #59b88b;
+  --silver-tree-400: #50a67d;
+  --silver-tree-500: #438e6b;
+  --silver-tree-600: #367456;
+  --silver-tree-700: #275941;
+  --silver-tree-800: #193d2c;
+  --silver-tree-900: #0b2217;
+  --silver-tree-950: #05140c;
+
+  --bay-leaf-50: #e4f5e5;
+  --bay-leaf-100: #bbeabf;
+  --bay-leaf-200: #a1cca4;
+  --bay-leaf-300: #8cb28f;
+  --bay-leaf-400: #7ea181;
+  --bay-leaf-500: #6c8a6e;
+  --bay-leaf-600: #577059;
+  --bay-leaf-700: #425543;
+  --bay-leaf-800: #2c3a2d;
+  --bay-leaf-900: #172018;
+  --bay-leaf-950: #0c120d;
+
+  --green-spring-50: #ebf3ea;
+  --green-spring-100: #d5e7d3;
+  --green-spring-200: #bed1bc;
+  --green-spring-300: #acbdaa;
+  --green-spring-400: #9baa99;
+  --green-spring-500: #849182;
+  --green-spring-600: #6b7669;
+  --green-spring-700: #50594f;
+  --green-spring-800: #363c35;
+  --green-spring-900: #1c201c;
+  --green-spring-950: #0f120f;
 }
