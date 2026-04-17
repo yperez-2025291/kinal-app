@@ -1,46 +1,68 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/css/colors.css}">
-    <link rel="stylesheet" th:href="@{/css/clientes.css}">
-    <title>Gestión de Clientes</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{/css/colors.css}">
+  <link rel="stylesheet" th:href="@{/css/global.css}">
+  <link rel="stylesheet" th:href="@{/css/clientes.css}">
+  <title>Gestión de Clientes - Kinal App</title>
 </head>
-<body class="fondo-app">
+<body>
+  <main>
     <div class="contenedor-principal">
-        <center><h1 class="titulo-pagina">Clientes Registrados</h1></center>
-        
-        <div class="seccion-botones">
-            <a th:href="@{/}" class="btn-general btn-volver">← Volver al Menú</a>
-            <a th:href="@{/vistas/clientes/nuevo}" class="btn-general btn-primario">+ Agregar Nuevo Cliente</a>
+    
+      <div class="panel-lateral">
+        <div class="contenedor-acciones-vertical">
+          <a th:href="@{/vistas/clientes/nuevo}" class="boton-lateral">Nuevo Cliente</a>
+          <a th:href="@{/vistas/clientes(activos=${!soloActivos})}" 
+              th:text="${soloActivos ? 'Ver Todos' : 'Ver Activos'}" 
+              class="boton-lateral"></a>
+          <a th:href="@{/vistas/clientes}" class="boton-lateral btn-limpiar">Listar Todos</a>
+          <a th:href="@{/}" class="boton-lateral btn-home">Volver al Inicio</a>
+        </div>
+      </div>
+
+      <div class="contenedor-tabla">
+        <div class="contenedor-cabecera">
+          <h2>Gestión de Clientes</h2>
+
+          <form th:action="@{/vistas/clientes}" method="get" class="barra-busqueda">
+            <input type="text" name="busqueda" placeholder="Buscar por DPI...">
+            <button type="submit" class="btn-buscar"></button>
+          </form>
         </div>
 
-        <div th:if="${param.error}" style="background:#fee2e2; color:#991b1b; padding:15px; border-radius:8px; margin-bottom:20px;">
-            <b>Error:</b> No se puede eliminar este cliente porque tiene historial de ventas.
-        </div>
-
-        <table class="tabla-moderna">
-            <thead>
-                <tr>
-                    <th>DPI</th>
-                    <th>Nombre Completo</th>
-                    <th>Dirección</th>
-                    <th style="text-align: center;">Operaciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="c : ${clientes}">
-                    <td th:text="${c.DPICliente}" style="font-weight:bold;"></td>
-                    <td th:text="${c.nombreCliente + ' ' + c.apellidoCliente}"></td>
-                    <td th:text="${c.direccion}"></td>
-                    <td style="text-align: center;">
-                        <a th:href="@{/vistas/clientes/editar/{id}(id=${c.DPICliente})}" class="badge-accion edit">✏️ Editar</a>
-                        <a th:href="@{/vistas/clientes/eliminar/{id}(id=${c.DPICliente})}" 
-                           class="badge-accion del" onclick="return confirm('¿Seguro que deseas eliminarlo?')">🗑️ Eliminar</a>
-                    </td>
-                </tr>
-            </tbody>
+        <table class="tabla-usuarios">
+          <thead>
+            <tr>
+              <th>DPI</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="c : ${clientes}">
+              <td th:text="${c.DPICliente}"></td>
+              <td th:text="${c.nombreCliente}"></td>
+              <td th:text="${c.apellidoCliente}"></td>
+              <td>
+                <span th:class="${c.estado == 1 ? 'estado-activo' : 'estado-inactivo'}"
+                      th:text="${c.estado == 1 ? 'Activo' : 'Inactivo'}">
+                </span>
+              </td>
+              <td class="celda-acciones">
+                <a th:href="@{/vistas/clientes/editar/{id}(id=${c.DPICliente})}">Editar</a>
+                <a th:href="@{/vistas/clientes/eliminar/{id}(id=${c.DPICliente})}" onclick="return confirm('¿Eliminar este cliente?');">
+                  Eliminar
+                </a>
+              </td>
+            </tr>
+          </tbody>
         </table>
+      </div>
     </div>
+  </main>
 </body>
 </html>
