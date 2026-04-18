@@ -1,86 +1,139 @@
-# kinal-app
+# Kinal App - Sistema de Gestión
 
-Es una aplicación desarrollada con Spring Boot que permite la gestión de información comercial mediante un sistema estructurado en múltiples entidades, el proyecto está diseñado bajo principios de arquitectura REST, facilitando operaciones CRUD para el manejo eficiente de datos.
-## Tecnologías utilizadas
-* **Java 21**
-* **SpringBoot 4.0.2**
-* **Maven** (Gestor de dependencias)
-* **MySQL Workbench** (Sistema de base de datos)
+Aplicación empresarial desarrollada con **Spring Boot** que permite la gestión integral de ventas, clientes, productos, usuarios y detalles de venta. El sistema combina una **API REST** para operaciones backend con una **interfaz web** construida con Thymeleaf, ofreciendo una experiencia completa para administración de datos comerciales.
 
-## Requisitos Previos
-Antes del proyecto, es importante tener:
-* JDK 17 o superior instalado
-* Maven Instalado
-* Una instancia activa de MySQL
+---
 
-## Cómo se instala y se ejecuta
+## Tecnologías utilizadas en el proyecto
+
+| Tecnología | Versión | Propósito |
+|------------|---------|------------|
+| **Java** | 21 | Lenguaje base |
+| **Spring Boot** | 4.0.2 | Framework principal |
+| **Spring MVC** | - | Controladores web y API REST |
+| **Spring Data JPA** | - | Persistencia y ORM |
+| **Thymeleaf** | 3.1.3 | Motor de plantillas HTML |
+| **Maven** | - | Gestor de dependencias |
+| **MySQL** | 8.0 | Base de datos relacional |
+| **HTML5 / CSS3** | - | Interfaz de usuario |
+
+---
+
+## Requisitos previos
+
+Antes de ejecutar el proyecto, asegúrate de tener instalado:
+
+- JDK 21 o superior
+- Maven 3.8+
+- MySQL Server 8.0 (activo)
+- Git (opcional, para clonar)
+
+---
+
+## Instalación y ejecución
+
 ### 1. Clonar el repositorio
-git clone https://github.com/yperez-2025291/kinal-app.git
-### 2. Entrar en la carpeta
-cd kinal-app
-### 3. Configura el archivo application.properties
-spring.application.name=KinalRestApplication
+
 ```bash
+git clone https://github.com/yperez-2025291/kinal-app.git
+cd kinal-app
+```
+## Configura application.properties
+```bash
+spring.application.name=KinalRestApplication
+
 #Conexion MySQL
 spring.datasource.url = jdbc:mysql://localhost:3306/dbClientes_in5av?createDatabaseIfNotExist=true
-spring.datasource.username = tu_usuario
-spring.datasource.password = tu_contraseña
-server.port=8001
+spring.datasource.username = tu_user
+spring.datasource.password = tu_password
+server.port= 8041
 
 #JPA / hibernate
 spring.jpa.hibernate.ddl-auto = update
 spring.jpa.show-sql = true
 ```
-### 4. Ejecuta el proyecto
 
-## Funcionalidades del proyecto
-* CRUD completo para todas las entidades
-* Manejo de relaciones entre entidades
-* Validaciones básicas
-* Persistencia con JPA/Hibernate
-* API REST estructurada
 ## Estructura del proyecto
 ```bash
-src/
-└── main/
-├── java/com/kinalapp/
-│    ├── controller/
-│    │    ├── ClienteController.java
-│    │    ├── ProductoController.java
-│    │    ├── UsuarioController.java
-│    │    ├── DetalleVentaController.java
-│    │    └── VentaController.java
-│    │
-│    ├── entity/
-│    │    ├── Cliente.java
-│    │    ├── Producto.java
-│    │    ├── Usuario.java
-│    │    ├── Venta.java
-│    │    └── DetalleVenta.java
-│    │
-│    ├── repository/
-│    │    ├── ClienteRepository.java
-│    │    ├── ProductoRepository.java
-│    │    ├── UsuarioRepository.java
-│    │    ├── VentaRepository.java
-│    │    └── DetalleVentaRepository.java
-│    │
-│    ├── service/
-│    │    ├── IClienteService.java
-│    │    ├── IProductoService.java
-│    │    ├── IUsuarioService.java
-│    │    ├── IVentaService.java
-│    │    ├── IDetalleVentaService.java
-│    │    ├── ClienteService.java
-│    │    ├── ProductoService.java
-│    │    ├── UsuarioService.java
-│    │    ├── VentaService.java
-│    │    └── DetalleVentaService.java
-│    │
-│    └── KinalRestApplication.java
-│
-└── resources/
-├── static/
-├── templates/
-└── application.properties
+kinal-app/
+├── src/
+│   └── main/
+│       ├── java/com/yubiniperez/kinalapp/
+│       │   ├── controller/
+│       │   │   ├── api/
+│       │   │   │   ├── ClienteController.java
+│       │   │   │   ├── ProductoController.java
+│       │   │   │   ├── UsuarioController.java
+│       │   │   │   ├── VentaController.java
+│       │   │   │   └── DetalleVentaController.java
+│       │   │   │
+│       │   │   └── controller/
+│       │   │       ├── HomeViewController.java
+│       │   │       ├── ClienteViewController.java
+│       │   │       ├── ProductoViewController.java
+│       │   │       ├── UsuarioViewController.java
+│       │   │       ├── VentaViewController.java
+│       │   │       └── DetalleVentaViewController.java
+│       │   │
+│       │   ├── entity/
+│       │   │   ├── Cliente.java
+│       │   │   ├── Producto.java
+│       │   │   ├── Usuario.java
+│       │   │   ├── Venta.java
+│       │   │   └── DetalleVenta.java
+│       │   │
+│       │   ├── repository/
+│       │   │   ├── ClienteRepository.java
+│       │   │   ├── ProductoRepository.java
+│       │   │   ├── UsuarioRepository.java
+│       │   │   ├── VentaRepository.java
+│       │   │   └── DetalleVentaRepository.java
+│       │   │
+│       │   ├── service/
+│       │   │   ├── interfaces/
+│       │   │   │   ├── IClienteService.java
+│       │   │   │   ├── IProductoService.java
+│       │   │   │   ├── IUsuarioService.java
+│       │   │   │   ├── IVentaService.java
+│       │   │   │   └── IDetalleVentaService.java
+│       │   │   │
+│       │   │   └── impl/
+│       │   │       ├── ClienteService.java
+│       │   │       ├── ProductoService.java
+│       │   │       ├── UsuarioService.java
+│       │   │       ├── VentaService.java
+│       │   │       └── DetalleVentaService.java
+│       │   │
+│       │   └── KinalRestApplication.java
+│       │
+│       └── resources/
+│           ├── static/
+│           │   └── css/
+│           │       ├── colors.css
+│           │       ├── global.css
+│           │       ├── home.css
+│           │       ├── usuarios.css
+│           │       ├── clientes.css
+│           │       ├── productos.css
+│           │       ├── ventas.css
+│           │       ├── detalles.css
+│           │       └── form/
+│           │           └── form-fk.css
+│           │
+│           └── templates/
+│               ├── index.html
+│               ├── pages/
+│               │   ├── usuarios.html
+│               │   ├── clientes.html
+│               │   ├── productos.html
+│               │   ├── ventas.html
+│               │   ├── detalles.html
+│               │   └── form/
+│               │       ├── usuario-form.html
+│               │       ├── cliente-form.html
+│               │       ├── producto-form.html
+│               │       ├── venta-form.html
+│               │       └── detalle-form.html
+│               │
+│               └── application.properties
 ```
