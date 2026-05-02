@@ -1,0 +1,78 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 20px;
+}
+
+.card-login {
+  background-color: var(--bay-leaf-50);
+  padding: 40px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  border-top: 10px solid var(--bay-leaf-700);
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--bay-leaf-800);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid var(--bay-leaf-200);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: var(--bay-leaf-500);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--bay-leaf-600);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: var(--bay-leaf-800);
+  transform: translateY(-2px);
+}
+
+.alert {
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.alert-error {
+  background-color: #fceaea;
+  color: #c0392b;
+  border: 1px solid #e74c3c;
+}
+
+.alert-logout {
+  background-color: var(--silver-tree-100);
+  color: var(--silver-tree-900);
+  border: 1px solid var(--silver-tree-400);
+}
