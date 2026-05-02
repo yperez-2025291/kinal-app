@@ -41,4 +41,14 @@ public class HomeViewController {
         
         return "index";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/index")
+    public String home(Model model) {
+        return index(model);
+    }
 }
