@@ -60,20 +60,17 @@ kinal-app/
 │   └── main/
 │       ├── java/com/yubiniperez/kinalapp/
 │       │   ├── controller/
-│       │   │   ├── api/
-│       │   │   │   ├── ClienteController.java
-│       │   │   │   ├── ProductoController.java
-│       │   │   │   ├── UsuarioController.java
-│       │   │   │   ├── VentaController.java
-│       │   │   │   └── DetalleVentaController.java
-│       │   │   │
-│       │   │   └── controller/
-│       │   │       ├── HomeViewController.java
-│       │   │       ├── ClienteViewController.java
-│       │   │       ├── ProductoViewController.java
-│       │   │       ├── UsuarioViewController.java
-│       │   │       ├── VentaViewController.java
-│       │   │       └── DetalleVentaViewController.java
+│       │   │   ├── ClienteController.java
+│       │   │   ├── ProductoController.java
+│       │   │   ├── UsuarioController.java
+│       │   │   ├── VentaController.java
+│       │   │   ├── DetalleVentaController.java
+│       │   │   ├── HomeViewController.java
+│       │   │   ├── ClienteViewController.java
+│       │   │   ├── ProductoViewController.java
+│       │   │   ├── UsuarioViewController.java
+│       │   │   ├── VentaViewController.java
+│       │   │   └── DetalleVentaViewController.java
 │       │   │
 │       │   ├── entity/
 │       │   │   ├── Cliente.java
@@ -81,6 +78,9 @@ kinal-app/
 │       │   │   ├── Usuario.java
 │       │   │   ├── Venta.java
 │       │   │   └── DetalleVenta.java
+│       │   │
+│       │   ├── config/
+│       │   │   └── SecurityConfig.java
 │       │   │
 │       │   ├── repository/
 │       │   │   ├── ClienteRepository.java
@@ -90,19 +90,16 @@ kinal-app/
 │       │   │   └── DetalleVentaRepository.java
 │       │   │
 │       │   ├── service/
-│       │   │   ├── interfaces/
-│       │   │   │   ├── IClienteService.java
-│       │   │   │   ├── IProductoService.java
-│       │   │   │   ├── IUsuarioService.java
-│       │   │   │   ├── IVentaService.java
-│       │   │   │   └── IDetalleVentaService.java
-│       │   │   │
-│       │   │   └── impl/
-│       │   │       ├── ClienteService.java
-│       │   │       ├── ProductoService.java
-│       │   │       ├── UsuarioService.java
-│       │   │       ├── VentaService.java
-│       │   │       └── DetalleVentaService.java
+│       │   │   ├── IClienteService.java
+│       │   │   ├── IProductoService.java
+│       │   │   ├── IUsuarioService.java
+│       │   │   ├── IVentaService.java
+│       │   │   ├── IDetalleVentaService.java
+│       │   │   ├── ClienteService.java
+│       │   │   ├── ProductoService.java
+│       │   │   ├── UsuarioService.java
+│       │   │   ├── VentaService.java
+│       │   │   └── DetalleVentaService.java
 │       │   │
 │       │   └── KinalRestApplication.java
 │       │
@@ -112,6 +109,7 @@ kinal-app/
 │           │       ├── colors.css
 │           │       ├── global.css
 │           │       ├── home.css
+│           │       ├── login.css
 │           │       ├── usuarios.css
 │           │       ├── clientes.css
 │           │       ├── productos.css
@@ -122,6 +120,7 @@ kinal-app/
 │           │
 │           └── templates/
 │               ├── index.html
+│               ├── login.html
 │               ├── pages/
 │               │   ├── usuarios.html
 │               │   ├── clientes.html
