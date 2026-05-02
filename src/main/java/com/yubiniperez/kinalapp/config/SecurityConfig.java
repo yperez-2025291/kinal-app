@@ -21,16 +21,57 @@ public class SecurityConfig {
         http
             // rutas publicas para todos los usuarios
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/**").permitAll() 
-                
-            // rutas para el admin todopoderoso
-            .requestMatchers("/admin/**").hasRole("ADMIN")
+                .requestMatchers("/login", "/css/**", "/static/css/**").permitAll()        
 
-            .anyRequest().authenticated()
+            // rutas para el admin todopoderoso
+                .requestMatchers( //usuarios
+                    "/usuarios",
+                    "/usuarios/**",
+                    "/usuario/**",
+                    "/pages/usuarios.html",
+                    "/pages/form/usuario-form.html"
+                ).hasRole("ADMIN")
+
+                .requestMatchers( //clientes
+                    "/clientes",
+                    "/clientes/**",
+                    "/cliente/**",
+                    "/pages/clientes.html",
+                    "/pages/form/cliente-form.html"
+                ).hasRole("ADMIN")
+
+                .requestMatchers(  //productos
+                    "/productos",
+                    "/productos/**",
+                    "/producto/**",
+                    "/pages/productos.html",
+                    "/pages/form/productos-form.html"
+                ).hasRole("ADMIN")
+                
+
+            //rutas para el admin y los usuarios normales
+                .requestMatchers( //ventas
+                    "/ventas",
+                    "/ventas/**",
+                    "/venta/**",
+                    "/pages/ventas.html",
+                    "/pages/form/venta-form.html"
+                ).hasAnyRole("USER", "ADMIN")
+
+                .requestMatchers( //detalle ventas
+                    "/detalles",
+                    "/detalles/**",
+                    "/detalle/**",
+                    "/pages/detalles.html",
+                    "/pages/form/detalle-form.html"
+                ).hasAnyRole("USER", "ADMIN")
+                
+                
+                .anyRequest().authenticated()
             )
             .formLogin(form -> form
                 .loginPage("/login")
-                .defaultSuccessUrl("/home", true)
+                .defaultSuccessUrl("/", true)
                 .permitAll()
             )
             .logout(logout -> logout
@@ -65,7 +106,5 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return NoOpPasswordEncoder.getInstance();
     }
-
-
 
 }
