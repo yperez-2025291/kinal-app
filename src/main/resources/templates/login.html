@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{/css/colors.css}">
+  <link rel="stylesheet" th:href="@{/css/global.css}">
+  <link rel="stylesheet" th:href="@{/css/home.css}">
+  <link rel="stylesheet" th:href="@{/css/login.css}">
+  <title>Login - Kinal App</title>
+</head>
+<body>
+  <header class="header">
+    <h2 th:text="'Kinal App'"></h2>
+    <p>Inicia sesión para gestionar el sistema</p>
+  </header>
+
+  <main class="login-wrapper">
+    <div class="card-login">
+      <div th:if="${param.error}" class="alert alert-error">
+        Usuario o contraseña incorrectos.
+      </div>
+      <div th:if="${param.logout}" class="alert alert-logout">
+        Sesión cerrada exitosamente.
+      </div>
+
+      <form th:action="@{/login}" method="post">
+        <div class="form-group">
+          <label>Nombre de Usuario</label>
+          <input type="text" name="username" placeholder="Ej: admin" required>
+        </div>
+        
+        <div class="form-group">
+          <label>Contraseña</label>
+          <input type="password" name="password" placeholder="********" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Ingresar</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
